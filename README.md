@@ -53,3 +53,9 @@ BASE_URL = "https://YourUsername.github.io/Business-QR/?id="
 ## Requirements for QR Generator
 
 The Python script uses standard libraries and calls the `api.qrserver.com` API. No external Python packages are strictly required, but you need an active internet connection to generate the QR codes.
+
+
+python generate_qrs.py
+git add .
+git commit -m "Update businesses.json and add README"
+git push
