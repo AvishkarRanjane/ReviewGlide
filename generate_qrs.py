@@ -8,7 +8,11 @@ import sys
 DATA_FILE = r"c:\Users\AVISHKAR\Documents\projects\websites\QR Code\data\businesses.json"
 QR_DIR = r"c:\Users\AVISHKAR\Documents\projects\websites\QR Code\QR Code"
 STATE_FILE = r"c:\Users\AVISHKAR\Documents\projects\websites\QR Code\sync_state.json"
-BASE_URL = "http://127.0.0.1:5500/index.html?id="
+# --- IMPORTANT: HOSTING URL ---
+# Right now, this is set for local testing on your computer.
+# When you host your website on GitHub Pages, change this URL!
+# Example: BASE_URL = "https://avishkar.github.io/QR-Code/?id="
+BASE_URL = "https://AvishkarRanjane.github.io/Business-QR/?id="
 
 def get_json_data():
     if not os.path.exists(DATA_FILE): return []
