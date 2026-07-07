@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4285F4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Leave a Google Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.CSS">
+</head>
+
+<body>
+
+    <!-- ===== ANIMATED BACKGROUND ===== -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="orb orb-blue"></div>
+        <div class="orb orb-red"></div>
+        <div class="orb orb-yellow"></div>
+        <div class="orb orb-green"></div>
+
+        <!-- Gemini-style wave ribbon at bottom -->
+        <div class="wave-stage">
+            <div class="wave-row row-1">
+                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 L1440,80 L0,80 Z" />
+                    <path
+                        d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 L1440,80 L0,80 Z"
+                        transform="translate(1440,0)" />
+                </svg>
+            </div>
+            <div class="wave-row row-2">
+                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0,50 C200,20 400,75 600,45 C800,20 1000,70 1200,50 C1320,35 1400,60 1440,50 L1440,80 L0,80 Z" />
+                    <path
+                        d="M0,50 C200,20 400,75 600,45 C800,20 1000,70 1200,50 C1320,35 1400,60 1440,50 L1440,80 L0,80 Z"
+                        transform="translate(1440,0)" />
+                </svg>
+            </div>
+            <div class="wave-row row-3">
+                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0,60 C180,30 360,75 540,55 C720,35 900,70 1080,55 C1260,40 1380,65 1440,60 L1440,80 L0,80 Z" />
+                    <path
+                        d="M0,60 C180,30 360,75 540,55 C720,35 900,70 1080,55 C1260,40 1380,65 1440,60 L1440,80 L0,80 Z"
+                        transform="translate(1440,0)" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN PAGE ===== -->
+    <div class="page">
+
+        <div class="card" id="review-card">
+
+            <!-- ── HEADER ── -->
+            <div class="card-head">
+                <!-- Google Maps pin SVG -->
+                <div class="gmap-pin" aria-hidden="true">
+                    <svg viewBox="0 0 22 30" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="rg" cx="38%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#FF6B6B" />
+                                <stop offset="100%" stop-color="#C5221F" />
+                            </radialGradient>
+                        </defs>
+                        <path d="M11 0C4.925 0 0 4.925 0 11c0 8.25 11 19 11 19S22 19.25 22 11C22 4.925 17.075 0 11 0z"
+                            fill="url(#rg)" />
+                        <circle cx="11" cy="11" r="5" fill="white" />
+                        <circle cx="11" cy="8.2" r="1.2" fill="#4285F4" />
+                        <circle cx="13.6" cy="9.8" r="1.2" fill="#FBBC05" />
+                        <circle cx="13" cy="13" r="1.2" fill="#34A853" />
+                        <circle cx="10" cy="13.8" r="1.2" fill="#EA4335" />
+                        <circle cx="8.2" cy="11.5" r="1.2" fill="#4285F4" />
+                    </svg>
+                </div>
+
+                <div class="head-text">
+                    <div class="g-word">
+                        <span class="c-b">G</span><span class="c-r">o</span><span class="c-y">o</span><span
+                            class="c-b">g</span><span class="c-g">l</span><span class="c-r">e</span>
+                    </div>
+                    <div class="g-sub">Reviews</div>
+                </div>
+            </div>
+
+            <!-- Rainbow divider -->
+            <div class="rainbow" aria-hidden="true">
+                <span class="rc rc-b"></span>
+                <span class="rc rc-r"></span>
+                <span class="rc rc-y"></span>
+                <span class="rc rc-g"></span>
+            </div>
+
+            <!-- ── BUSINESS INFO ── -->
+            <div class="biz-block" id="biz-block">
+                <p class="biz-eyebrow">You're reviewing</p>
+                <h1 class="biz-name" id="biz-name">Loading…</h1>
+            </div>
+
+            <!-- ── NOT FOUND STATE ── -->
+            <div class="nf-state gone" id="nf-state">
+                <div class="nf-ico">🔍</div>
+                <p class="nf-msg">Business not found.<br><span>Please scan the correct QR code.</span></p>
+            </div>
+
+            <!-- ── STAR RATING ── -->
+            <div class="star-block" id="star-block">
+                <p class="star-q">How was your experience?</p>
+                <div class="stars-row" id="stars-row" role="group" aria-label="Star rating">
+                    <button class="star" data-r="1" type="button" aria-label="1 star">★</button>
+                    <button class="star" data-r="2" type="button" aria-label="2 stars">★</button>
+                    <button class="star" data-r="3" type="button" aria-label="3 stars">★</button>
+                    <button class="star" data-r="4" type="button" aria-label="4 stars">★</button>
+                    <button class="star" data-r="5" type="button" aria-label="5 stars">★</button>
+                </div>
+                <p class="star-lbl" id="star-lbl">&nbsp;</p>
+            </div>
+
+            <!-- ── REVIEW OUTPUT ── -->
+            <div class="review-block gone" id="review-block">
+
+                <!-- Generating skeleton (Gemini style dots) -->
+                <div class="gen-wrap" id="gen-wrap">
+                    <div class="skel-line sl-full"></div>
+                    <div class="skel-line sl-full"></div>
+                    <div class="skel-line sl-med"></div>
+                    <div class="gen-dots">
+                        <span class="gd gd-b"></span>
+                        <span class="gd gd-r"></span>
+                        <span class="gd gd-y"></span>
+                        <span class="gd gd-g"></span>
+                        <span class="gen-txt">Generating review…</span>
+                    </div>
+                </div>
+
+                <!-- Actual review text -->
+                <div class="rev-box gone" id="rev-box">
+                    <span class="quote-ico" aria-hidden="true">❝</span>
+                    <p class="rev-text" id="rev-text"></p>
+                </div>
+
+                <!-- CTA Button -->
+                <button class="post-btn" id="post-btn" type="button" disabled aria-label="Copy review and open Google">
+                    <svg viewBox="0 0 24 24" class="btn-svg" aria-hidden="true">
+                        <path
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                    </svg>
+                    Copy &amp; Post on Google
+                </button>
+                <p class="post-hint">Tap above → Paste on Google Reviews → Submit ✓</p>
+            </div>
+
+        </div>
+
+        <!-- Footer brand -->
+        <div class="foot-brand">
+            Powered by&nbsp;
+            <span class="c-b">G</span><span class="c-r">o</span><span class="c-y">o</span><span
+                class="c-b">g</span><span class="c-g">l</span><span class="c-r">e</span>
+            &nbsp;Reviews
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <svg viewBox="0 0 24 24" class="toast-ico" aria-hidden="true">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+        </svg>
+        Copied! Opening Google Reviews…
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
