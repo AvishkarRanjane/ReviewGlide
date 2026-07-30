@@ -1,0 +1,29 @@
+[
+  {
+    "id": "kumar-digital-photo-studio",
+    "name": "Kumar Digital Photo Studio",
+    "category": "Photography & Printing Studio",
+    "address": "Shop #12, Station Road, Mumbai",
+    "googleRating": 4.9,
+    "totalReviews": 148,
+    "link": "https://www.google.com/search?q=Kumar+Digital+Photo+Studio#lrd=0x3be7e9cdad5855a1:0x4d14f3a5ec673db9,3,,,,"
+  },
+  {
+    "id": "avishkar-photos",
+    "name": "Avishkar Photos",
+    "category": "Event & Portrait Photography",
+    "address": "Suite 402, Creative Plaza, Pune",
+    "googleRating": 5.0,
+    "totalReviews": 92,
+    "link": "https://www.google.com/search?q=Avishkar+Photos#lrd=0x3be7e9cdad5855a1:0x4d14f3a5ec673db9,3,,,,"
+  },
+  {
+    "id": "siddhi-photos",
+    "name": "Siddhi Photos",
+    "category": "Commercial & Wedding Studio",
+    "address": "Main Market Complex, Thane",
+    "googleRating": 4.8,
+    "totalReviews": 115,
+    "link": "https://www.google.com/search?q=Siddhi+Photos#lrd=0x3be7e9cdad5855a1:0x4d14f3a5ec673db9,3,,,,"
+  }
+]

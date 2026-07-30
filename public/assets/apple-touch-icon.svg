@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Card Body -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
+  <rect x="36" y="36" width="440" height="440" rx="108" fill="none" stroke="url(#accentGrad)" stroke-width="6" opacity="0.6"/>
+
+  <!-- Dynamic Star Logo -->
+  <path d="M256 120 L294 196 L378 208 L317 267 L331 350 L256 310 L181 350 L195 267 L134 208 L218 196 Z" fill="url(#starGrad)" filter="url(#glow)"/>
+  
+  <!-- Subtle QR Corner Lines -->
+  <path d="M120 120 H170 V145 H145 V170 H120 Z" fill="#38BDF8" opacity="0.8"/>
+  <path d="M392 120 H342 V145 H367 V170 H392 Z" fill="#818CF8" opacity="0.8"/>
+  <path d="M120 392 H170 V367 H145 V342 H120 Z" fill="#C084FC" opacity="0.8"/>
+</svg>

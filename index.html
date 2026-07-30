@@ -1,183 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#4285F4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Leave a Google Review</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366F1">
+    <meta name="description" content="ReviewGlide — Frictionless Google Reviews & QR Studio for local businesses. Generate dynamic customer reviews and scan custom QR codes effortlessly.">
+
+    <!-- OpenGraph & Twitter Social Cards -->
+    <meta property="og:title" content="ReviewGlide — Smart Google Reviews & QR Studio">
+    <meta property="og:description" content="Empower your business with instant, frictionless Google Reviews and automatic QR code generation.">
+    <meta property="og:image" content="./public/assets/og-image.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ReviewGlide — Smart Google Reviews Platform">
+    <meta name="twitter:description" content="Generate Google Reviews and QR codes in seconds.">
+    <meta name="twitter:image" content="./public/assets/og-image.png">
+
+    <title>ReviewGlide — Frictionless Google Reviews & QR Studio</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+    <link rel="apple-touch-icon" href="./public/assets/apple-touch-icon.svg">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="Style.CSS">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./src/css/main.css">
 </head>
 
 <body>
 
-    <!-- ===== ANIMATED BACKGROUND ===== -->
-    <div class="bg-scene" aria-hidden="true">
-        <div class="orb orb-blue"></div>
-        <div class="orb orb-red"></div>
-        <div class="orb orb-yellow"></div>
-        <div class="orb orb-green"></div>
-
-        <!-- Gemini-style wave ribbon at bottom -->
-        <div class="wave-stage">
-            <div class="wave-row row-1">
-                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 L1440,80 L0,80 Z" />
-                    <path
-                        d="M0,40 C120,10 240,70 360,40 C480,10 600,70 720,40 C840,10 960,70 1080,40 C1200,10 1320,70 1440,40 L1440,80 L0,80 Z"
-                        transform="translate(1440,0)" />
-                </svg>
-            </div>
-            <div class="wave-row row-2">
-                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M0,50 C200,20 400,75 600,45 C800,20 1000,70 1200,50 C1320,35 1400,60 1440,50 L1440,80 L0,80 Z" />
-                    <path
-                        d="M0,50 C200,20 400,75 600,45 C800,20 1000,70 1200,50 C1320,35 1400,60 1440,50 L1440,80 L0,80 Z"
-                        transform="translate(1440,0)" />
-                </svg>
-            </div>
-            <div class="wave-row row-3">
-                <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M0,60 C180,30 360,75 540,55 C720,35 900,70 1080,55 C1260,40 1380,65 1440,60 L1440,80 L0,80 Z" />
-                    <path
-                        d="M0,60 C180,30 360,75 540,55 C720,35 900,70 1080,55 C1260,40 1380,65 1440,60 L1440,80 L0,80 Z"
-                        transform="translate(1440,0)" />
-                </svg>
-            </div>
-        </div>
+    <!-- Ambient Floating Orbs Background -->
+    <div class="ambient-scene" aria-hidden="true">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
     </div>
 
-    <!-- ===== MAIN PAGE ===== -->
-    <div class="page">
+    <!-- Main Container -->
+    <div class="app-container">
 
-        <div class="card" id="review-card">
-
-            <!-- ── HEADER ── -->
-            <div class="card-head">
-                <!-- Google Maps pin SVG -->
-                <div class="gmap-pin" aria-hidden="true">
-                    <svg viewBox="0 0 22 30" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <radialGradient id="rg" cx="38%" cy="30%" r="70%">
-                                <stop offset="0%" stop-color="#FF6B6B" />
-                                <stop offset="100%" stop-color="#C5221F" />
-                            </radialGradient>
-                        </defs>
-                        <path d="M11 0C4.925 0 0 4.925 0 11c0 8.25 11 19 11 19S22 19.25 22 11C22 4.925 17.075 0 11 0z"
-                            fill="url(#rg)" />
-                        <circle cx="11" cy="11" r="5" fill="white" />
-                        <circle cx="11" cy="8.2" r="1.2" fill="#4285F4" />
-                        <circle cx="13.6" cy="9.8" r="1.2" fill="#FBBC05" />
-                        <circle cx="13" cy="13" r="1.2" fill="#34A853" />
-                        <circle cx="10" cy="13.8" r="1.2" fill="#EA4335" />
-                        <circle cx="8.2" cy="11.5" r="1.2" fill="#4285F4" />
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <a href="/" class="brand-badge" aria-label="ReviewGlide Home">
+                <div class="brand-icon">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
                 </div>
-
-                <div class="head-text">
-                    <div class="g-word">
-                        <span class="c-b">G</span><span class="c-r">o</span><span class="c-y">o</span><span
-                            class="c-b">g</span><span class="c-g">l</span><span class="c-r">e</span>
-                    </div>
-                    <div class="g-sub">Reviews</div>
+                <div>
+                    <span>ReviewGlide</span>
+                    <div class="brand-tag">QR Studio</div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Rainbow divider -->
-            <div class="rainbow" aria-hidden="true">
-                <span class="rc rc-b"></span>
-                <span class="rc rc-r"></span>
-                <span class="rc rc-y"></span>
-                <span class="rc rc-g"></span>
-            </div>
-
-            <!-- ── BUSINESS INFO ── -->
-            <div class="biz-block" id="biz-block">
-                <p class="biz-eyebrow">You're reviewing</p>
-                <h1 class="biz-name" id="biz-name">Loading…</h1>
-            </div>
-
-            <!-- ── NOT FOUND STATE ── -->
-            <div class="nf-state gone" id="nf-state">
-                <div class="nf-ico">🔍</div>
-                <p class="nf-msg">Business not found.<br><span>Please scan the correct QR code.</span></p>
-            </div>
-
-            <!-- ── STAR RATING ── -->
-            <div class="star-block" id="star-block">
-                <p class="star-q">How was your experience?</p>
-                <div class="stars-row" id="stars-row" role="group" aria-label="Star rating">
-                    <button class="star" data-r="1" type="button" aria-label="1 star">★</button>
-                    <button class="star" data-r="2" type="button" aria-label="2 stars">★</button>
-                    <button class="star" data-r="3" type="button" aria-label="3 stars">★</button>
-                    <button class="star" data-r="4" type="button" aria-label="4 stars">★</button>
-                    <button class="star" data-r="5" type="button" aria-label="5 stars">★</button>
-                </div>
-                <p class="star-lbl" id="star-lbl">&nbsp;</p>
-            </div>
-
-            <!-- ── REVIEW OUTPUT ── -->
-            <div class="review-block gone" id="review-block">
-
-                <!-- Generating skeleton (Gemini style dots) -->
-                <div class="gen-wrap" id="gen-wrap">
-                    <div class="skel-line sl-full"></div>
-                    <div class="skel-line sl-full"></div>
-                    <div class="skel-line sl-med"></div>
-                    <div class="gen-dots">
-                        <span class="gd gd-b"></span>
-                        <span class="gd gd-r"></span>
-                        <span class="gd gd-y"></span>
-                        <span class="gd gd-g"></span>
-                        <span class="gen-txt">Generating review…</span>
-                    </div>
-                </div>
-
-                <!-- Actual review text -->
-                <div class="rev-box gone" id="rev-box">
-                    <span class="quote-ico" aria-hidden="true">❝</span>
-                    <p class="rev-text" id="rev-text"></p>
-                </div>
-
-                <!-- CTA Button -->
-                <button class="post-btn" id="post-btn" type="button" disabled aria-label="Copy review and open Google">
-                    <svg viewBox="0 0 24 24" class="btn-svg" aria-hidden="true">
-                        <path
-                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+            <div class="header-actions">
+                <button type="button" class="btn-icon-blur" id="btn-open-qr-studio" title="Create QR Code for your business" aria-label="Open QR Code Studio">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 4v16m8-8H4"/>
                     </svg>
-                    Copy &amp; Post on Google
                 </button>
-                <p class="post-hint">Tap above → Paste on Google Reviews → Submit ✓</p>
+
+                <button type="button" class="btn-icon-blur" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Primary Glass Card -->
+        <main class="glass-card" id="main-review-card">
+
+            <!-- Business Profile Header -->
+            <div class="business-header">
+                <div class="business-avatar" id="biz-avatar">K</div>
+                <div class="business-details">
+                    <div class="business-eyebrow">You are reviewing</div>
+                    <h1 class="business-title" id="biz-title">Kumar Digital Photo Studio</h1>
+                    <div class="business-meta">
+                        <span class="rating-badge" id="biz-rating-badge">★ 4.9 (148 reviews)</span>
+                        <span>• Google Verified</span>
+                    </div>
+                </div>
             </div>
 
-        </div>
+            <!-- Star Rating Input -->
+            <section class="rating-section" aria-label="Rating selection">
+                <p class="rating-prompt">How was your overall experience?</p>
+                <div class="stars-container" id="stars-container" role="radiogroup" aria-label="Star Rating Select">
+                    <button type="button" class="star-btn active" data-star="1" aria-label="1 Star">★</button>
+                    <button type="button" class="star-btn active" data-star="2" aria-label="2 Stars">★</button>
+                    <button type="button" class="star-btn active" data-star="3" aria-label="3 Stars">★</button>
+                    <button type="button" class="star-btn active" data-star="4" aria-label="4 Stars">★</button>
+                    <button type="button" class="star-btn active" data-star="5" aria-label="5 Stars">★</button>
+                </div>
+                <div class="rating-label" id="rating-label">5 Stars — Outstanding Experience! 🎉</div>
+            </section>
 
-        <!-- Footer brand -->
-        <div class="foot-brand">
-            Powered by&nbsp;
-            <span class="c-b">G</span><span class="c-r">o</span><span class="c-y">o</span><span
-                class="c-b">g</span><span class="c-g">l</span><span class="c-r">e</span>
-            &nbsp;Reviews
+            <!-- Smart Tag Builder -->
+            <section class="builder-section" id="builder-section">
+                <div class="builder-title">Tap highlights to customize your review:</div>
+                <div class="tags-cloud" id="tags-container">
+                    <!-- Dynamic tag pills will be populated by JS -->
+                </div>
+            </section>
+
+            <!-- Review Output Box -->
+            <section class="review-output-box">
+                <div class="quote-icon">“</div>
+                <textarea id="review-textarea" class="review-textarea" aria-label="Review Text" rows="3" placeholder="Crafting your review..."></textarea>
+                <div class="review-controls">
+                    <button type="button" class="btn-text-action" id="btn-shuffle-review" aria-label="Shuffle Review Variant">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Re-roll Phrase
+                    </button>
+                    <span class="char-counter" id="char-counter">142 characters</span>
+                </div>
+            </section>
+
+            <!-- Primary Action Button -->
+            <button type="button" class="btn-primary-action" id="btn-primary-action">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                </svg>
+                Copy Review &amp; Open Google
+            </button>
+            <p class="action-hint">Copies review text automatically &amp; opens official Google Review page.</p>
+
+        </main>
+
+        <!-- Business Directory Switcher -->
+        <section class="directory-section">
+            <div class="section-label">Browse Available Business Profiles</div>
+            <div class="business-grid" id="business-grid">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Live QR Studio Modal Dialog -->
+    <div class="modal-backdrop" id="qr-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">QR Code Studio</h2>
+                <button type="button" class="btn-icon-blur" id="btn-close-qr-modal" aria-label="Close Modal">✕</button>
+            </div>
+            
+            <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:16px;">
+                Enter a business identifier to instantly generate a branded QR code linked to ReviewGlide:
+            </p>
+
+            <div class="form-group">
+                <label for="studio-biz-id" class="form-label">Business Slug ID</label>
+                <input type="text" id="studio-biz-id" class="form-input" value="kumar-digital-photo-studio" placeholder="e.g. my-awesome-store">
+            </div>
+
+            <div class="qr-preview-box">
+                <img id="studio-qr-image" class="qr-image" src="" alt="Live QR Preview">
+                <button type="button" class="btn-primary-action" id="btn-download-qr" style="padding:12px 20px; font-size:14px;">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    Download High-Res QR (PNG)
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- ===== TOAST ===== -->
-    <div class="toast" id="toast" role="status" aria-live="polite">
-        <svg viewBox="0 0 24 24" class="toast-ico" aria-hidden="true">
-            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-        </svg>
-        Copied! Opening Google Reviews…
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+        <span class="toast-icon">✓</span>
+        <span id="toast-msg">Review copied! Redirecting...</span>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- Module JavaScript -->
+    <script type="module" src="./src/js/app.js"></script>
 </body>
 
 </html>

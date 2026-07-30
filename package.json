@@ -1,0 +1,26 @@
+{
+  "name": "review-glide",
+  "version": "1.0.0",
+  "description": "Frictionless Google Reviews & QR Studio for Local Businesses",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "sync:qrs": "python scripts/generate_qrs.py --once",
+    "sync:watch": "python scripts/generate_qrs.py"
+  },
+  "keywords": [
+    "google-reviews",
+    "qr-code",
+    "business-reviews",
+    "apple-design",
+    "glassmorphism",
+    "review-generator",
+    "vercel"
+  ],
+  "author": "Avishkar Ranjane",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AvishkarRanjane/ReviewGlide.git"
+  }
+}
